@@ -21,7 +21,7 @@
                                 <p class="text-center small">Enter your username & password to login</p>
                             </div>
 
-                            <form class="row g-3 needs-validation" action="" method="">
+                            <form class="row g-3 needs-validation" action="{{ route('register') }}" method="POST">
                                 @csrf
                                 
                                 <div class="col-12">
@@ -30,17 +30,25 @@
                                         value="{{ old('name') }}">
                                 </div>
                                 <div class="col-12">
+                                    <label for="username" class="form-label">Username</label>
+                                    <input type="text" name="username" class="form-control"
+                                        value="{{ old('username') }}">
+                                </div>
+                                <div class="col-12">
                                     <label for="nik" class="form-label">NIK</label>
                                     <input type="text" name="nik" class="form-control"
                                         value="{{ old('nik') }}">
                                 </div>
 
-                                <div class="col-12">
-                                    <label for="username" class="form-label">Username</label>
-                                    <input type="text" name="username" class="form-control"
-                                        value="{{ old('username') }}">
-                                </div>
 
+                                <div class="col-12">
+                                    <label for="alamat" class="form-label">alamat</label>
+                                    <textarea name="alamat" id="alamat" cols="30" rows="10"></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <label for="telfon" class="form-label">telfon</label>
+                                    <input type="telfon" name="telfon" class="form-control">
+                                </div>
                                 <div class="col-12">
                                     <label for="password" class="form-label">Password</label>
                                     <input type="password" name="password" class="form-control">

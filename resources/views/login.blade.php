@@ -17,7 +17,7 @@
                                 <p class="text-center small">Enter your username & password to login</p>
                             </div>
 
-                            <form class="row g-3 needs-validation" action="" method="">
+                            <form class="row g-3 needs-validation" action="{{ route('login.action') }}" method="POST">
                                 @csrf
                                 
                                 <div class="col-12">

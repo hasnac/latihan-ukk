@@ -36,24 +36,38 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <td>1</td>
-                        <td>hasna</td>   
-                        <td>laut</td>
-                        <td>dipinjam</td>
-                        <td>
-                            <button type="submit" class="btn btn-secondary">Sudah Dikembalikan</button>
+                        <?php $i = $data->firstItem();?>
+                        @foreach ($data as $item)
+                            
+                        <tr>
+                            <td>{{ $i }}</td>
+                            <td>{{ $item->user->username }}</td>   
+                            <td>{{ $item->buku->judul }}</td>
+                            <td>{{ $item->status }}</td>
+                            <td>
+                                @if ($item->status == 'kembali')
                                     
-                            <form action="#pinjam">
-                                            
-                                <button type="submit" class="btn btn-primary">Kembalikan</button>
-                            </form>
-                            @endif
-                            
-                            
-                        </td>
+                                <button type="submit" class="btn btn-secondary">Sudah Dikembalikan</button>
+                                @else
+                                    
+                                <form action="{{ url('pinjam/' . $item->id_pinjam) }}" method="POST">
+                                    @csrf
+                                    @method('PUT')    
+                                    <button type="submit" class="btn btn-primary">Kembalikan</button>
+                                </form>
+                                @endif
+                                        
+                                
+                                
+                                
+                            </td>
+
+                        </tr>
+                        <?php $i++?>
+                        @endforeach
                     </tbody>
                 </table>
-               
+               {{ $data->links() }}
             </div>
         </div>
     </section>

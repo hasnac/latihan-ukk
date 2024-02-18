@@ -35,11 +35,11 @@
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title">Create Data Buku</h4>
-                        <a href='' class="btn btn-secondary">Back</a>
+                        <a href='{{ url('buku') }}' class="btn btn-secondary">Back</a>
                     </div>
                     <div class="card-content">
                         <div class="card-body">
-                            <form action="" method='' enctype="multipart/form-data" class="form" data-parsley-validate>
+                            <form action="{{ url('buku') }}" method='POST' enctype="multipart/form-data" class="form" data-parsley-validate>
                                 @csrf
                                 
                                 <div class="row">
@@ -53,24 +53,12 @@
                                                 placeholder="First Name"
                                                 name="judul"
                                                 data-parsley-required="true"
-                                                value="judul"
+                                                value="{{ Session::get('judul') }}"
                                             />
                                         </div>
                                     </div>
                                     
                                     
-                                    
-                                    <div class="col-md-12 col-12">
-                                        
-                                        <label for="deskripsi" class="form-label">Deskripsi</label>
-                                            
-                                        <div class="form-group with-title mb-3">
-                                            <textarea class="form-control" id="deskripsi" name="deskripsi"  rows="3"></textarea>
-                                            <label>Your Deskripsi</label>
-                                        </div>
-                                            
-                                        
-                                    </div>
                                     <div class="col-md-12 col-12">
                                         <div class="form-group mandatory">
                                             <label for="first-name-column" class="form-label">penulis</label>
@@ -104,20 +92,32 @@
                                             <label for="first-name-column" class="form-label">tahunterbit</label>
                                             <input
                                                 type="text"
-                                                id="tahunterbit"
+                                                id="tahun_terbit"
                                                 class="form-control"
                                                 placeholder="First Name"
-                                                name="tahunterbit"
+                                                name="tahun_terbit"
                                                 data-parsley-required="true"
                                                 
                                             />
                                         </div>
                                     </div>
+                                    
                                     <div class="col-md-12 col-12">
                                         <div class="form-group">
-                                            <label for="picture" class="form-label">Picture</label>
-                                            <input class="form-control" type="file" id="picture" name="picture" multiple>
+                                            <label for="gambar" class="form-label">gambar</label>
+                                            <input class="form-control" type="file" id="gambar" name="gambar" multiple>
                                         </div>
+                                    </div>
+                                    <div class="col-md-12 col-12">
+                                        
+                                        <label for="deskripsi" class="form-label">Deskripsi</label>
+                                            
+                                        <div class="form-group with-title mb-3">
+                                            <textarea class="form-control" id="deskripsi" name="deskripsi"  rows="3"></textarea>
+                                            <label>Your Deskripsi</label>
+                                        </div>
+                                            
+                                        
                                     </div>
                                     <div class="col-md-12 col-12">
                                         <div class="form-group mandatory">
@@ -132,6 +132,17 @@
                                                 
                                             />
                                         </div>
+                                    </div>
+                                    <div class="col-md-12 col-12">
+                                        <h6>Basic Select</h6>
+                                        
+                                        <fieldset class="form-group">
+                                            <select class="form-select" id="kategori" name="kategori">
+                                                <option value="fiksi" >Fiksi</option>
+                                                <option value="nonfiksi">Non Fiksi</option>
+                                                
+                                            </select>
+                                        </fieldset>
                                     </div>
                                     <div class="col-md-12 col-12">
                                         
@@ -157,17 +168,6 @@
                                         
                                         
                                     </div>  
-                                    <div class="col-md-12 col-12">
-                                        <h6>Basic Select</h6>
-                                        
-                                        <fieldset class="form-group">
-                                            <select class="form-select" id="kategori" name="kategori">
-                                                <option value="fiksi" >Fiksi</option>
-                                                <option value="non">Non Fiksi</option>
-                                                
-                                            </select>
-                                        </fieldset>
-                                    </div>
                                                              
                                 </div>  
                                 <div class="row">
